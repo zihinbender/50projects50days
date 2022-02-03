@@ -22,7 +22,6 @@ body {
 
 .container {
     text-align: center;
-    /* background: rebeccapurple; */
 }
 
 .progress-container {
@@ -62,37 +61,37 @@ body {
     background-color: #fff;
     color: #999;
     border-radius: 50%;
-    height: 2rem;
     width: 2rem;
+    height: 2rem;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     border: 3px solid var(--line-border-empty);
-    transition: 0.4s ease;
+    transition: .4s ease;
 }
 
-.circle.active {
+.active {
     border-color: var(--line-border-fill);
 }
 
 .btn {
     background-color: var(--line-border-fill);
-    color: #fff;
     border: none;
-    border-radius: 6px;
+    color: #fff;
+    border-radius: 0.5rem;
     cursor: pointer;
     font-family: inherit;
-    padding: 0.5rem 2rem;
-    margin: 0.5rem;
+    padding: 0.5rem 1.8rem;
+    margin: 0.4rem;
     font-size: 1rem;
 }
 
 .btn:active {
-    transform: scale(0.98);
-  }
-  
+    transform: scale(0.9);
+}
+
 .btn:focus {
-    outline: 0;
+    outline: none;
 }
 
 .btn:disabled {

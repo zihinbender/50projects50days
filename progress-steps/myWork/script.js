@@ -1,51 +1,53 @@
 const progress = document.getElementById('progress');
-const btnPrev = document.getElementById('prev');
-const btnNxt = document.getElementById('next');
+const next = document.getElementById('next');
+const prev = document.getElementById('prev');
 const circles = document.querySelectorAll('.circle');
 
 let currentActive = 1;
 
-btnNxt.addEventListener('click', function() {
-    currentActive++;
+next.addEventListener('click', function() {
+  currentActive++;
 
-    if(currentActive === circles.length) {
-        currentActive = circles.length;
-    }
+  if(currentActive > circles.length) {
+    
+    currentActive = circles.length;
+  };
 
-    update();
+  update();
 });
 
-btnPrev.addEventListener('click', function() {
-    currentActive--;
+prev.addEventListener('click', function() {
+  currentActive--;
 
-    if(currentActive < 1) {
-        currentActive = 1;
-    }
+  if(currentActive < 1 ) {
+    
+    currentActive = 1;
+  };
 
-    update();
+  update();
 });
 
 function update() {
+  circles.forEach(function(circle, idx) {
     
-    circles.forEach(function(circle, idx) {
-        if(idx < currentActive) {
-            circle.classList.add('active');
-        } else {
-            circle.classList.remove('active');
-        }
-    });
+    if(idx < currentActive) {
+      circle.classList.add('active');
+    }else{
+      circle.classList.remove('active');
+    };
+  
+  });
 
-    const actives = document.querySelectorAll('.active');
+  const actives = document.querySelectorAll('.active');
 
-    progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%';
+  progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%';
 
-    if(currentActive === 1) {
-        btnPrev.disabled = true;
-    } else if(currentActive === circles.length) {
-        btnNxt.disabled = true;
-    } else {
-        btnPrev.disabled = false;
-        btnNxt.disabled = false;
-    }
-
+  if(currentActive === 1) {
+    prev.disabled = true;
+  } else if(currentActive === circles.length) {
+    next.disabled = true;
+  } else {
+    prev.disabled = false;
+    next.disabled = false;
+  }
 };
